@@ -103,7 +103,7 @@ export const Login = async (req, res) => {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days
             httpOnly: true,
             secure: false, // Only set secure flag in production
-            sameSite: 'Lax' // Ensure this is correct based on your use case (Strict/Lax/None)
+            // sameSite: 'Lax' // Ensure this is correct based on your use case (Strict/Lax/None)
         };
           return res.status(200).cookie('token', token, options).json({
             message: `Welcome back ${user.name}`,

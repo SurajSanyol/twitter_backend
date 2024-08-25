@@ -6,7 +6,7 @@ import userRoute from './routes/userRoutes.js'
 import tweetRoute from "./routes/tweetRoute.js"
 import cors from "cors"
 import cloudinaryConnect from './config/cloudinary.js';
-import fileUpload from './middleware/upload.js'
+
 
 dotenv.config();
 const app = express();
