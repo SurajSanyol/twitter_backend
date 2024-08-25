@@ -1,0 +1,16 @@
+import multer from 'multer'
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './controllers/uploadFiles')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-';
+    cb(null, uniqueSuffix + file.originalname)
+
+  }
+})
+const upload = multer({ storage: storage })
+
+export default upload
