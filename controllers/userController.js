@@ -99,12 +99,19 @@ export const Login = async (req, res) => {
 
         // create a cookie
 
+        // const options = {
+        //     expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days
+        //     httpOnly: true,
+        //     secure: true, // Only set secure flag in production
+        //     sameSite: 'Lax' // Ensure this is correct based on your use case (Strict/Lax/None)
+        // };
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days
             httpOnly: true,
-            secure: true, // Only set secure flag in production
-            sameSite: 'Lax' // Ensure this is correct based on your use case (Strict/Lax/None)
+            secure: process.env.NODE_ENV === 'production', // Set to true in production
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax' // 'none' for cross-site in production, 'lax' otherwise
         };
+        
 
           return res.status(200).cookie('token', token, options).json({
             message: `Welcome back ${user.name}`,
