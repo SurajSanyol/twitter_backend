@@ -99,12 +99,7 @@ export const Login = async (req, res) => {
 
         // create a cookie
 
-        // const options = {
-        //     expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days
-        //     httpOnly: true,
-        //     secure: true, // Only set secure flag in production
-        //     sameSite: 'Lax' // Ensure this is correct based on your use case (Strict/Lax/None)
-        // };
+    
         const options = {
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days
             httpOnly: true,
