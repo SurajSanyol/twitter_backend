@@ -24,7 +24,7 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 const options = {
-  origin: "*",
+  origin: process.env.CROSS_ORIGIN_URL,
   methods: 'GET, PUT,DELETE,POST',
   credentials: true,
 }
