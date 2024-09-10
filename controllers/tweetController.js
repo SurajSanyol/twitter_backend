@@ -21,8 +21,7 @@ export const createTweet = async (req, res) => {
 
         const file = req.file;
         let response = null;
-     
-        
+          
     
         if (file) {
             const supportedTypes = ["jpg", "jpeg", "png","tif","tiff", "webp", "bmp", "gif"];
@@ -36,8 +35,9 @@ export const createTweet = async (req, res) => {
                     message: `File formate is not supported `,
                 })
             }
+          
 
-             response = await cloudinaryUpload(file.path, "tweetImage");
+             response = await cloudinaryUpload(file.path,"tweetImage",file);
         }
         //validiation 
 
